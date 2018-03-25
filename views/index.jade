@@ -1,0 +1,12 @@
+extends layout
+
+block body
+  div.jumbotron-fluid.dashboard-title.text-center
+    nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
+      div.navbar-brand
+        img(src="/img/home_icon.png", width="40", height="40")
+      div.collapse.navbar-collapse
+        div.navbar-nav
+          a.nav-item.nav-link.active(href="#") Home
+
+  div(ng-view)

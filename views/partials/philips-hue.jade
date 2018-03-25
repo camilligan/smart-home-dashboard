@@ -1,0 +1,19 @@
+div(ng-controller='HueCtrl')
+  div.row
+    div.col-sm-6.bottom-buffer
+      div.card.h100
+        div.card-header.text-center
+          h2 Philips Hue Lights
+        div.card-block
+          div.container
+            div.row(ng-repeat="group in groups")
+              div.col-2.text-center
+                div.round
+                  img(src="/img/light-bulb-2-32.png", style="height: 20px;")
+              div.col-5
+                p {{group.name}}
+              div.col-5
+                label.checkbox-inline
+                  input(type="checkbox", id="toggle-{{$index}}", data-toggle="toggle", data-onstyle="warning", data-on="{{group.lights.length}} Lights On", data-off="{{group.lights.length}} Lights Off", data-style="primary", data-height="30px", data-width="140px")
+            
+    

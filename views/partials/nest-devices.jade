@@ -1,0 +1,64 @@
+div(ng-controller='NestCtrl')
+    div.row
+      div.col-sm-6.bottom-buffer
+        div.card.h-100.text-center
+          div.card-header
+            h3 Home/Away
+          div.card-block
+            img(ng-show="away == 'home'", src="/img/home.png", height="200px", width="200px")
+            img(ng-show="away != 'home'", src="/img/away.png", height="200px", width="200px")
+            p {{away}}
+      div.col-sm-6.bottom-buffer(ng-repeat="thermostat in thermostats")
+        div.card.h-100.text-center
+          div.card-header
+            h3 {{thermostat.name_long}}
+          div.card-block(ng-disabled="disabled")
+            ui-knob(value="thermostat.ambient_temperature_f", options="options")
+      div.col.bottom-buffer
+        div.card.h-100
+          div.card-header.text-center
+            h3 Nest Protect
+          div.card-block
+            div.row
+              div.col(ng-repeat="smoke_alarm in smoke_alarms")
+                div.card.h-100
+                  div.card-header.text-center
+                    h3 {{smoke_alarm.name}}
+                  div.card-block
+                    div.row
+                      div.col-9
+                        p.card-text Smoke Status: 
+                      div.col-3.text-center.smoke-alarm-buffer
+                        p.card-text(ng-class="{ 'ok': 'status-ok', 'warning': 'status-warning', 'emergency': 'status-warning'}[smoke_alarm.smoke_alarm_state]") {{smoke_alarm.smoke_alarm_state}}
+                    div.row
+                      div.col-9
+                        p.card-text CO Status: 
+                      div.col-3.text-center.smoke-alarm-buffer
+                        p.card-text(ng-class="{ 'ok': 'status-ok', 'warning': 'status-warning', 'emergency': 'status-warning'}[smoke_alarm.co_alarm_state]") {{smoke_alarm.co_alarm_state}}
+                    div.row.smoke-alarm-buffer
+                      div.col-9
+                        p.card-text Battery Health: 
+                      div.col-3.text-center.smoke-alarm-buffer
+                        p.card-text(ng-class="{ 'ok': 'status-ok', 'replace': 'status-warning'}[smoke_alarm.battery_health]") {{smoke_alarm.battery_health}}
+      div.col.bottom-buffer
+        div.card.h-100
+          div.card-header.text-center
+            h3 Camera
+          div.card-block
+            div.row
+              div.col(ng-repeat="camera in cameras")
+                div.card.h-100
+                  div.card-header.text-center
+                    h3 {{camera.name}}
+                  div.card-block.text-center
+                    p.card-text.status-ok(ng-show="camera.is_online") Online
+                    p.card-text.status-warning(ng-show="!camera.is_online") Offline
+                    
+                    p.card-text.status-ok(ng-show="camera.is_streaming") Streaming
+                    p.card-text.status-warning(ng-show="!camera.is_streaming") Not Steaming
+                    
+                    p.card-text.status-ok(ng-show="camera.is_audio_input_enabled") Audio Enabled
+                    p.card-text.status-warning(ng-show="!camera.is_audio_input_enabled") Audio Disabled
+                    
+                    p.card-text.status-ok(ng-show="camera.is_video_history_enabled") History Enabled
+                    p.card-text.status-warning(ng-show="!camera.is_video_history_enabled") History Disabled

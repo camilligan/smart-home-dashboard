@@ -1,0 +1,26 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "angular-circular-slider": "^1.2.3",
+    "angular1-ui-bootstrap4": "^2.4.22",
+    "body-parser": "^1.0.2",
+    "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap-toggle": "^2.2.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "error-handler": "^0.1.4",
+    "eventsource": "^1.0.5",
+    "express": "~4.1.1",
+    "express-error-handler": "^1.1.0",
+    "express-session": "^1.15.6",
+    "jade": "~0.31.2",
+    "js-cookie": "^2.2.0",
+    "method-override": "^1.0.0",
+    "morgan": "^1.0.0",
+    "ng-knob": "^1.0.1",
+    "passport": "^0.4.0",
+    "passport-nest": "^1.0.0"
+  }
+}
